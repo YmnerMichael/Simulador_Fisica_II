@@ -96,6 +96,7 @@ export default function CalculadoraPotencial() {
   return (
     <ModuloLayout
       titulo="Calculadora de potencial"
+      explicacion={`Estás colocando el punto ${colocar}. Al moverlo, cambia su distancia a cada carga y se recalculan sus aportes al potencial.`}
       simulacion={
         <>
           <LienzoCargas

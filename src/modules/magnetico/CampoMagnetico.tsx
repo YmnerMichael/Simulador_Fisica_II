@@ -74,6 +74,7 @@ export default function CampoMagnetico() {
   return (
     <ModuloLayout
       titulo="Campo magnético 3D"
+      explicacion={mostrarBrujulas ? 'Cada brújula se alinea con el campo magnético en su posición.' : 'Mueve la sonda para comparar la dirección y la intensidad del campo en distintos puntos.'}
       simulacion={
         <>
           <Escena3DMagnetica

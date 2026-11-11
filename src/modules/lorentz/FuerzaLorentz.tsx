@@ -133,6 +133,13 @@ export default function FuerzaLorentz() {
   return (
     <ModuloLayout
       titulo="Fuerza de Lorentz"
+      explicacion={{
+        circular: 'Fíjate en la trayectoria. El campo magnético va cambiando la dirección de la partícula y la hace girar en un círculo.',
+        helicoidal: 'La partícula gira mientras avanza a lo largo del campo magnético. Por eso dibuja una hélice.',
+        deriva: 'Mira cómo la partícula se curva y, al mismo tiempo, se desplaza de lado. Ese desplazamiento se llama deriva.',
+        selector: 'Observa cuál de las partículas pasa en línea recta. A esa velocidad, la fuerza eléctrica y la magnética se equilibran.',
+        espectrometro: 'Compara las curvas. Si dos iones tienen la misma carga y rapidez, el de mayor masa describe una curva más amplia.',
+      }[c.caso]}
       simulacion={
         <>
           <EscenaLorentz key={c.caso} sim={sim} idSim={idSim} caso={c.caso} corriendo={corriendo} pasosPorCuadro={velocidad} hayE={c.caso === 'deriva' || c.caso === 'selector'} onTick={onTick} />

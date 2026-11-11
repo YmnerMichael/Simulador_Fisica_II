@@ -101,6 +101,10 @@ export default function SimuladorCapacitores() {
   return (
     <ModuloLayout
       titulo="Simulador de capacitores"
+      explicacion={vista === 'asociacion'
+        ? (tipo === 'serie' ? 'En serie, la capacitancia equivalente es menor que la de cualquiera de los capacitores.' : 'En paralelo, las capacitancias se suman.')
+        : fraccion > 0 ? 'El dieléctrico aumenta la capacitancia. Prueba retirarlo y compara el resultado.'
+        : 'Acerca las placas para aumentar la capacitancia o inserta un dieléctrico y compara el resultado.'}
       simulacion={
         vista === 'placas' ? (
           <>

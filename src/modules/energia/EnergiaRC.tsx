@@ -193,6 +193,7 @@ export default function EnergiaRC() {
   return (
     <ModuloLayout
       titulo="Energía almacenada y circuito RC"
+      explicacion={cargando ? 'El capacitor se carga: su voltaje se acerca al de la fuente y la corriente va disminuyendo.' : 'El capacitor se descarga por la resistencia: su voltaje va cayendo hacia cero.'}
       simulacion={
         <div className="flex h-full flex-col">
           <div className="relative min-h-[260px] flex-1">

@@ -14,7 +14,7 @@ import Escena3DCargas from './Escena3DCargas';
 export default function VisualizadorCargas() {
   const cargas = useCargasStore((s) => s.cargas);
   const [modo, setModo] = useState<'2d' | '3d'>('2d');
-  const [capas, setCapas] = useState<Required<Capas>>({ mapa: true, vectores: false, lineas: true, equipotenciales: true });
+  const [capas, setCapas] = useState<Required<Capas>>({ mapa: false, vectores: false, lineas: true, equipotenciales: false });
   const [densidad, setDensidad] = useState(6);
   const [lineas3D, setLineas3D] = useState(true);
   const [iso, setIso] = useState(false);
@@ -27,6 +27,13 @@ export default function VisualizadorCargas() {
   return (
     <ModuloLayout
       titulo="Visualizador de cargas puntuales"
+      explicacion={cargas.length === 0 ? 'Agrega una carga para ver cómo aparece su campo eléctrico.'
+        : modo === '3d' ? (iso ? 'Cada superficie reúne puntos con el mismo potencial eléctrico.' : 'Gira la escena para ver cómo se distribuyen las líneas en el espacio.')
+        : capas.equipotenciales ? 'Cada curva equipotencial une puntos con el mismo potencial eléctrico.'
+        : capas.mapa ? 'El mapa de colores representa el potencial eléctrico en cada punto.'
+        : cargas.length === 2 && cargas[0].q === cargas[1].q && cargas[0].q !== 0
+          ? 'Entre dos cargas iguales, los campos se cancelan justo en el punto medio.'
+          : 'Las líneas de campo salen de las cargas positivas y entran en las negativas. Mueve una carga para ver cómo se reorganizan.'}
       simulacion={
         modo === '2d' ? (
           <LienzoCargas cargas={cargas} capas={capas} densidadLineas={densidad} editable etiqueta="Campo eléctrico de las cargas en 2D" />

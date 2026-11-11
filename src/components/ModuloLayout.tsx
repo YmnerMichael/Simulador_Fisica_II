@@ -2,9 +2,11 @@ import { useEffect, useState, type ReactNode } from 'react';
 import { useLocation } from 'react-router-dom';
 import { MODULOS } from '../modules/registry';
 import Modal from './Modal';
+import GuiaSimulacion from './GuiaSimulacion';
 
 interface Props {
   titulo: string;
+  explicacion: string;
   /** Área central de simulación (Canvas 2D o escena 3D) */
   simulacion: ReactNode;
   /** Panel derecho: controles, fórmulas y resultados */
@@ -17,7 +19,7 @@ interface Props {
  * Plantilla común a los 9 módulos: simulación al centro y panel a la derecha.
  * En pantallas angostas la simulación ocupa la parte superior y el panel queda debajo.
  */
-export default function ModuloLayout({ titulo, simulacion, panel, teoria }: Props) {
+export default function ModuloLayout({ titulo, explicacion, simulacion, panel, teoria }: Props) {
   const [verTeoria, setVerTeoria] = useState(false);
   const { pathname } = useLocation();
   const modulo = MODULOS.find((m) => `/${m.ruta}` === pathname);
@@ -41,6 +43,7 @@ export default function ModuloLayout({ titulo, simulacion, panel, teoria }: Prop
             </button>
           )}
         </div>
+        <GuiaSimulacion key={pathname} explicacion={explicacion} />
         {panel}
       </aside>
       {teoria && (

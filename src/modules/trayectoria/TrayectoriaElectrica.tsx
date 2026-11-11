@@ -191,6 +191,7 @@ export default function TrayectoriaElectrica() {
   return (
     <ModuloLayout
       titulo="Trayectoria en campo eléctrico"
+      explicacion={q === 0 ? 'Sin carga eléctrica, el campo no ejerce fuerza sobre la partícula.' : q > 0 ? 'La fuerza sobre esta partícula positiva apunta en la dirección del campo eléctrico local.' : 'La fuerza sobre esta partícula negativa apunta en sentido contrario al campo eléctrico local.'}
       simulacion={
         <>
           <LienzoCargas

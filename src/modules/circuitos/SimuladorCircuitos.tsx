@@ -62,6 +62,7 @@ export default function SimuladorCircuitos() {
   return (
     <ModuloLayout
       titulo="Simulador de circuitos"
+      explicacion={'Selecciona una resistencia para ver su voltaje, corriente y potencia. Prueba abrir un interruptor y observa qué ramas dejan de conducir.'}
       simulacion={
         <>
           <EditorCircuito analisis={analisis} mostrarValores={mostrarValores} animar={animar} />

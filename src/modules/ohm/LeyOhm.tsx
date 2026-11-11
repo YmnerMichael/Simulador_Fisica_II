@@ -167,6 +167,7 @@ export default function LeyOhm() {
   return (
     <ModuloLayout
       titulo="Ley de Ohm y resistividad"
+      explicacion={`Con ${V} voltios y ${R} ohmios, la corriente es de ${I.toLocaleString('es-PE', { maximumSignificantDigits: 3, useGrouping: false })} amperios. Ahora sube la resistencia sin mover el voltaje. Verás que baja la corriente.`}
       simulacion={
         <div className="flex h-full flex-col">
           <div className="relative min-h-[240px] flex-1">
